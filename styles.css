@@ -1,0 +1,345 @@
+:root {
+    --bg-color: #121417;
+    --accent-green: #00ff88a1;
+    --accent-hover: #00ff8866;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a5b0;
+    --glass-bg: rgba(18, 20, 23, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --hyperlink-color: #00ff88a1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Subtle background glows for a space vibe */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.08) 0%, rgba(18, 20, 23, 0) 50%),
+        radial-gradient(circle at 90% 80%, rgba(0, 255, 136, 0.06) 0%, rgba(18, 20, 23, 0) 50%),
+        radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.03) 0%, rgba(18, 20, 23, 0) 60%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 4rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: var(--glass-bg);
+    border-bottom: 1px solid var(--glass-border);
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--accent-green);
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.about-link {
+    color: var(--accent-green);
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.about-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--accent-green);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.about-link:hover::after {
+    width: 100%;
+}
+
+.download-btn {
+    color: #ffffff;
+    background-color: var(--accent-green);
+    padding: 0.8rem 2.2rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: var(--accent-hover);
+    box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
+    transform: translateY(-2px);
+    color: #ffffff;
+}
+
+/* Hero section */
+.hero {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10rem 2rem 4rem;
+    text-align: center;
+}
+
+.screenshot-container {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    margin-bottom: 3.5rem;
+    border-radius: 20px;
+}
+
+/* Outer glow for the screenshot */
+.glow-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    box-shadow: 0 0 45px rgba(0, 255, 136, 0.35);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.game-screenshot {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    border: 4px solid var(--accent-green);
+    display: block;
+    position: relative;
+    z-index: 2;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+}
+
+.title {
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: 4px;
+    text-shadow: 2px 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    font-weight: 400;
+    letter-spacing: 1px;
+    opacity: 0.9;
+    margin-top: 1rem;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+/* Content Section Elements */
+.content-section {
+    padding: 0 2rem 4rem;
+    width: 100%;
+}
+
+.content-container {
+    max-width: 900px;
+    /* Aligns with central boundaries */
+    margin: 0 auto;
+    text-align: left;
+    /* Aligns text to left */
+}
+
+.content-container h2 {
+    font-size: 2.2rem;
+    color: var(--text-primary);
+    margin: 2.5rem 0 0.8rem;
+    font-weight: 700;
+}
+
+.content-container h3 {
+    font-size: 1.6rem;
+    color: var(--text-primary);
+    margin: 2rem 0 0.6rem;
+    font-weight: 600;
+}
+
+.content-container p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+}
+
+.content-container a:not(.download-btn) {
+    color: var(--hyperlink-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.content-container a:not(.download-btn):hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+.mod-dropdown {
+    margin-bottom: 2.5rem;
+    background: rgba(18, 20, 23, 0.4);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+.mod-dropdown summary {
+    display: flex;
+    align-items: flex-start;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    cursor: pointer;
+    outline: none;
+    list-style: none;
+    /* Hide default marker */
+}
+
+/* Hide webkit marker */
+.mod-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.mod-dropdown summary:hover .dropdown-icon {
+    color: var(--accent-hover);
+}
+
+.dropdown-icon {
+    display: inline-block;
+    color: var(--accent-green);
+    margin-right: 1rem;
+    margin-top: 0.2rem;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    font-size: 1rem;
+}
+
+.mod-dropdown[open] .dropdown-icon {
+    transform: rotate(90deg);
+}
+
+.summary-text {
+    flex-grow: 1;
+}
+
+.mod-dropdown[open] summary {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 1rem;
+}
+
+.mod-dropdown ul {
+    list-style-type: none;
+    padding-left: 0.5rem;
+}
+
+.mod-dropdown li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.mod-dropdown li::before {
+    content: "▹";
+    color: var(--accent-green);
+    position: absolute;
+    left: 0;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 3.5rem;
+    }
+
+    .navbar {
+        padding: 1.2rem 2rem;
+    }
+
+    .screenshot-container {
+        margin-bottom: 2.5rem;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+    }
+}
+
+/* Footer styles */
+.site-footer {
+    text-align: center;
+    padding: 3rem 2rem 2rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    opacity: 0.6;
+    margin-top: auto;
+    width: 100%;
+}
