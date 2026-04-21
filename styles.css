@@ -59,10 +59,14 @@ body::before {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--accent-green);
-    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 32px;
+    width: auto;
 }
 
 .nav-links {
@@ -327,8 +331,8 @@ body::before {
         gap: 1rem;
     }
 
-    .logo {
-        font-size: 1.3rem;
+    .logo-img {
+        height: 26px;
     }
 
     .nav-links {
